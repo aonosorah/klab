@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { HeaderInventory } from '../sections/header'
-import list from '../products/repositorio.json'
 import { Table, Box, P, PP, MainBox } from '../styled/invStyled'
+import { GlobalContext } from '../global/globalContext'
 
 export default function Inventory() {
 
- 
- const product = list.map((item) => { return (<Table>
+ const { list } = useContext(GlobalContext)
+
+ const product = list.map((item, index) => { return (<Table key={index}>
   <Box><PP>{item.produto}</PP></Box>
   <Box><PP>{item.quantidade}</PP></Box>
   <Box><PP>{item.defeito}</PP></Box>

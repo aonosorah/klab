@@ -20,7 +20,7 @@ background-color: #F4F1DE;
 `
 export const CardBox = styled.div`
 width: 500px;
-height: 300px;
+height: 270px;
 display: flex;
 align-items: center;
 justify-content: flex-start; 
@@ -32,5 +32,6 @@ border-radius: 10px;
 export const Img = styled.img `
 width: 275px ;
 height: 250px;
-margin: 10px;
+margin: 5px;
+border-radius: 10px;
 `

@@ -1,15 +1,33 @@
-import React, { useContext } from 'react'
-import { HeaderHome } from '../sections/header'
+import React, { useContext, useEffect, useState } from 'react'
+import { HeaderHome } from '../sections/productHeader'
 import { GlobalContext } from '../global/globalContext'
 import { CardBox } from '../styled/prodStyled'
 import { images } from '../constants/images'
 import { Img, MainBox } from '../styled/prodStyled'
+import product from '../products/repositorio.json'
 
 export default function Product() {
 
-  const { list } = useContext(GlobalContext)
-  
-  const product = list.map((item, index) => { 
+  const [ list, setList ] = useState([])
+  const [ selects, setSelects ] = useState(0)
+
+  useEffect(() => {
+    const newList = product.filter((item) => {
+      if (selects == 1 && item.defeito > 0) {
+          return item
+      }
+      if (selects == 2 && item.defeito === 0) {
+          return item
+      }
+      if (selects == 0) {
+          return item
+      }
+  })
+  setList(newList)
+  }, [selects])
+
+
+  const productList = list.map((item, index) => { 
       const pImage = item.imagem.split(".")
       return <CardBox key={index}>
       <div><Img src={images[pImage[0]]} alt="imagem produto"/></div>
@@ -22,9 +40,9 @@ export default function Product() {
 
   return (
     <div>
-        <HeaderHome/>
+        <HeaderHome selects={selects} setSelects={setSelects}/>
         <MainBox>
-          {product}
+          {productList}
         </MainBox>
     </div>
   )

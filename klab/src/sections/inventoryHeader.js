@@ -1,29 +1,12 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../global/globalContext';
-import { goHome, goInventory, goBack } from '../routes/coordinator'
-import { Title, TitleBox, ButtonBox, Button } from '../styled/homeStyled'
+import { goHome, goBack } from '../routes/coordinator'
+import { TitleBox, ButtonBox} from '../styled/homeStyled'
 import { TitleIn, ButtonIn, InputIn } from '../styled/invStyled'
-import { ButtonProd } from '../styled/prodStyled'
 
 
-export function HeaderHome() {
-    const navigate = useNavigate()
-     const [search, setSearch ] = useState("");
-   
-    const onChangeInput = (e) => { setSearch(e.target.value) }
 
-    return (
-        <div>
-            <TitleBox><TitleIn>kLab - eCommerce</TitleIn></TitleBox>
-            <ButtonBox>
-                <ButtonProd onClick={() => goBack(navigate)}>Voltar</ButtonProd>
-                <InputIn placeholder='busca por nome' value={search} onChange={onChangeInput} />
-                <ButtonProd onClick={() => goInventory(navigate)}>Estoque</ButtonProd>
-            </ButtonBox>
-        </div>
-    )
-};
 export function HeaderInventory() {
     const navigate = useNavigate()
     const [ values, setValues ] = useState("")
@@ -47,17 +30,3 @@ export function HeaderInventory() {
         </div>
     )
 }
-export function Header() {
-    const navigate = useNavigate()
-
-    return (
-        <div>
-            <TitleBox><Title>kLab - eCommerce</Title> </TitleBox>
-            <ButtonBox>
-                <Button onClick={() => goHome(navigate)}>Produtos</Button>
-                <Button onClick={() => goInventory(navigate)}>Estoque</Button>
-            </ButtonBox>
-        </div>
-    )
-}
-

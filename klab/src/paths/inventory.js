@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { HeaderInventory } from '../sections/header'
+import { HeaderInventory } from '../sections/inventoryHeader'
 import { Table, Box, P, PP, MainBox } from '../styled/invStyled'
 import { GlobalContext } from '../global/globalContext'
 

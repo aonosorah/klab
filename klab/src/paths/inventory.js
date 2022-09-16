@@ -6,13 +6,15 @@ import { GlobalContext } from '../global/globalContext'
 export default function Inventory() {
 
  const { list } = useContext(GlobalContext)
-
- const product = list.map((item, index) => { return (<Table key={index}>
+ 
+ const product = list.map((item, index) => { 
+  const price = item.valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+  return (<Table key={index}>
   <Box><PP>{item.produto}</PP></Box>
   <Box><PP>{item.quantidade}</PP></Box>
   <Box><PP>{item.defeito}</PP></Box>
   <Box><PP>{item.quantidade - item.defeito}</PP></Box>
-  <Box><PP>{item.valor}</PP></Box>
+  <Box><PP>{price}</PP></Box>
 
   </Table>)})
   

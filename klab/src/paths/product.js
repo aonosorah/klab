@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { HeaderHome } from '../sections/productHeader'
-import { GlobalContext } from '../global/globalContext'
+
 import { CardBox } from '../styled/prodStyled'
 import { images } from '../constants/images'
 import { Img, MainBox } from '../styled/prodStyled'

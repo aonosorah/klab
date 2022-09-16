@@ -11,3 +11,26 @@ margin-left: 25px;
 border-radius: 10px;
 color: #F4F1DE;
 `
+export const MainBox = styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+margin: 20px;
+background-color: #F4F1DE;
+`
+export const CardBox = styled.div`
+width: 500px;
+height: 300px;
+display: flex;
+align-items: center;
+justify-content: flex-start; 
+flex-wrap: wrap;
+margin: 10px;
+background-color: #E07A5F;
+border-radius: 10px;
+`
+export const Img = styled.img `
+width: 275px ;
+height: 250px;
+margin: 10px;
+`

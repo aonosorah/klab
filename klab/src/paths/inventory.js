@@ -1,13 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { HeaderInventory } from '../sections/inventoryHeader'
 import { Table, Box, P, PP, MainBox } from '../styled/invStyled'
 import { GlobalContext } from '../global/globalContext'
 
 export default function Inventory() {
-
+const [ alphabetic, setAlphabetic ] = useState(0)
  const { list } = useContext(GlobalContext)
- 
- const product = list.map((item, index) => { 
+ const auxList = [...list]
+ const newList = alphabetic == 1 ? [...auxList.sort( (a,b)  => {
+  if (a.produto > b.produto) {
+       return 1;
+  }
+  if (a.produto < b.produto) {
+       return -1;
+  }
+  return 0;
+})] : [...list]
+ const product = newList.map((item, index) => { 
   const price = item.valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
   return (<Table key={index}>
   <Box><PP>{item.produto}</PP></Box>
@@ -20,7 +29,7 @@ export default function Inventory() {
   
  return (
     <div>
-      <HeaderInventory/>
+      <HeaderInventory alphabetic={alphabetic} setAlphabetic={setAlphabetic}/>
     <MainBox>
       <Table> 
         <Box><P>Produto</P></Box>

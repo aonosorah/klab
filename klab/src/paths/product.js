@@ -9,11 +9,14 @@ export default function Product() {
 
   const [ list, setList ] = useState([])
   const [ selects, setSelects ] = useState(0)
+  const [ search, setSearch ] = useState("")
 
   useEffect(() => {
     const newList = product.filter((item) => {
+      if (item.produto.toLowerCase().includes(search.toLowerCase())){
+        console.log(search)
       if (selects == 1 && item.defeito > 0) {
-          return item.defeito
+          return item
       }
       if (selects == 2 && item.defeito === 0) {
           return item
@@ -21,9 +24,11 @@ export default function Product() {
       if (selects == 0) {
           return item
       }
+      }
+      
   })
   setList(newList)
-  }, [selects])
+  }, [selects, search])
 
 
   const productList = list.map((item, index) => { 
@@ -32,14 +37,14 @@ export default function Product() {
       <div><Img src={images[pImage[0]]} alt="imagem produto"/></div>
       <Text>
         <P>{item.produto}</P>
-        <p>Quantidade: {item.quantidade - item.defeito}</p>
+        <p>Quantidade: {selects == 1 ? item.defeito : item.quantidade - item.defeito}</p>
       </Text>
     </CardBox>
   }) 
 
   return (
     <div>
-        <HeaderHome selects={selects} setSelects={setSelects}/>
+        <HeaderHome selects={selects} setSelects={setSelects} search={search} setSearch={setSearch}/>
         <MainBox>
           {productList}
         </MainBox>

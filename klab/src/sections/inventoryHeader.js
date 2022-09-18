@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../global/globalContext';
 import { goHome, goBack } from '../routes/coordinator'
@@ -9,10 +9,8 @@ import { TitleIn, ButtonIn, InputIn, Select } from '../styled/invStyled'
 
 export function HeaderInventory() {
     const navigate = useNavigate()
-    const [ values, setValues ] = useState("")
     const { search, setSearch, order, setOrder } = useContext(GlobalContext)
     const onChangeInput = (e) => { setSearch(e.target.value) }
-    const onChangeValue = (e) => { setValues(e.target.value) }
     const onChangeSelect = (e) => { setOrder(e.target.value)}
     return (
         <div>

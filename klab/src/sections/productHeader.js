@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../global/globalContext';
 import { goInventory, goBack } from '../routes/coordinator'
@@ -8,11 +8,8 @@ import { ButtonProd } from '../styled/prodStyled'
 
 
 
-export function HeaderHome({selects, setSelects}) {
+export function HeaderHome({selects, setSelects, search, setSearch}) {
     const navigate = useNavigate()
-    const { search, setSearch} = useContext(GlobalContext)
-
-
     const onChangeInput = (e) => { setSearch(e.target.value) }
     const onChangeSelect = (e) => { setSelects(e.target.value)}
     return (

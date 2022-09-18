@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../global/globalContext';
 import { goHome, goBack } from '../routes/coordinator'
 import { TitleBox, ButtonBox} from '../styled/homeStyled'
-import { TitleIn, ButtonIn, InputIn } from '../styled/invStyled'
+import { TitleIn, ButtonIn, InputIn, Select } from '../styled/invStyled'
 
 
 
@@ -20,11 +20,11 @@ export function HeaderInventory() {
             <ButtonBox>
             <ButtonIn onClick={() => goBack(navigate)}>Voltar</ButtonIn>
             <InputIn placeholder='busca por nome' value={search} onChange={onChangeInput} />
-            <select onChange={onChangeSelect} value={order}>
+            <Select onChange={onChangeSelect} value={order}>
                     <option value={0}>Todos os Produtos</option>
                     <option value={50}>Acima de 50 Produtos</option>
                     <option value={75}>Acima de 75 Produtos</option>
-            </select>
+            </Select>
             <ButtonIn onClick={() => goHome(navigate)}>Produtos</ButtonIn>
             </ButtonBox>
         </div>

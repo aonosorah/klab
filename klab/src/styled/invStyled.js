@@ -32,15 +32,27 @@ margin: 1px;
 display: flex;
 justify-content: center;
 background-color: #F2CC8F;
+border-radius: 10px;
 `
 export const P = styled.p`
 color: #3D405B;
 font-weight: bold;
+flex-wrap: wrap;
+font-family: 'Trebuchet MS';
 ` 
 export const PP = styled.p`
 color: #3D405B;
+font-family: 'Trebuchet MS';
 `
 export const MainBox = styled.div`
 margin-left: 200px;
 margin-right: 150px;
+`
+export const Select = styled.select`
+width: 250px;
+height: 30px;
+border: none;
+border-radius: 10px;
+margin-right: 25px;
+background-color: #F4F1DE;
 `

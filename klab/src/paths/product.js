@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { HeaderHome } from '../sections/productHeader'
-
 import { CardBox } from '../styled/prodStyled'
 import { images } from '../constants/images'
-import { Img, MainBox } from '../styled/prodStyled'
+import { Img, MainBox, Text, P} from '../styled/prodStyled'
 import product from '../products/repositorio.json'
 
 export default function Product() {
@@ -14,7 +13,7 @@ export default function Product() {
   useEffect(() => {
     const newList = product.filter((item) => {
       if (selects == 1 && item.defeito > 0) {
-          return item
+          return item.defeito
       }
       if (selects == 2 && item.defeito === 0) {
           return item
@@ -31,10 +30,10 @@ export default function Product() {
       const pImage = item.imagem.split(".")
       return <CardBox key={index}>
       <div><Img src={images[pImage[0]]} alt="imagem produto"/></div>
-      <div>
-        <p>{item.produto}</p>
-        <p>{item.quantidade}</p>
-      </div>
+      <Text>
+        <P>{item.produto}</P>
+        <p>Quantidade: {item.quantidade - item.defeito}</p>
+      </Text>
     </CardBox>
   }) 
 

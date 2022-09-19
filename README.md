@@ -1,4 +1,4 @@
-# klab - eCommerce
+# klab - eCommerce ~ Teste Técnico
 
 <br> Este trabalho é um teste técnico que visa a forma de coding, para a [Koerich Lab](https://www.linkedin.com/company/koerich-lab/)
 <br>
@@ -13,7 +13,7 @@
  - [x] Atividade 007 (Estilização da Página) - Transformar em algo visualmente agradável para o usuário.
  - [ ] Atividade Extra (Desenvolvimento do backend em java)
  
-## [link](https://link.sh)
+## [kLab - eCommerce](https://klab-ecommerce.surge.sh/)
 
 <br>Avaliadores:
 <br>

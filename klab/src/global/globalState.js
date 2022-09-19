@@ -10,7 +10,7 @@ export const GlobalState = (props) => {
     const [ order, setOrder ] = useState(0)
     const [ list, setList ] = useState([])
     const navigate = useNavigate()
- 
+    
     useEffect (() => {
      const newList = product.filter((item) => {
         if (item.produto.toLowerCase().includes(search.toLowerCase()) && item.quantidade > order) {
@@ -18,9 +18,8 @@ export const GlobalState = (props) => {
         }
     })
      setList(newList)
+     
  }, [search, order])
-   
-    
     const values = { search, setSearch, price, setPrice, order, setOrder, list }
     
     return (

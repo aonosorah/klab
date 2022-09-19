@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../global/globalContext';
 import { goHome, goBack } from '../routes/coordinator'
@@ -12,8 +12,27 @@ export function HeaderInventory({alphabetic, setAlphabetic}) {
     
     const { search, setSearch, order, setOrder } = useContext(GlobalContext)
     const onChangeInput = (e) => { setSearch(e.target.value) }
-    const onChangeSelect = (e) => { setOrder(e.target.value)}
-    const onChangeOrder = (e) => { setAlphabetic(e.target.value)}
+    const onChangeSelect = (e) => { setOrder(e.target.value) }    
+    const onChangeOrder = (e) => { setAlphabetic(e.target.value) }
+        
+    const getItem = JSON.parse(localStorage.getItem("selectIn"))
+    const getSearch = JSON.parse(localStorage.getItem("searchIn"))
+    const getAlph = JSON.parse(localStorage.getItem("alphaIn"))
+
+    useEffect (() => {
+           if ( getItem || getSearch || getAlph ) {
+        setSearch(getSearch)
+        setOrder(getItem)
+        setAlphabetic(getAlph)
+    }
+    }, [])
+    if (order || search || alphabetic) {
+    localStorage.setItem("searchIn", JSON.stringify(search))
+    localStorage.setItem("selectIn", JSON.stringify(order)) 
+    localStorage.setItem("alphaIn", JSON.stringify(alphabetic)) 
+    }
+ 
+
     return (
         <div>
             <TitleBox><TitleIn>kLab - eCommerce</TitleIn></TitleBox>

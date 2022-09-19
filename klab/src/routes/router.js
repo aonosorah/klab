@@ -10,8 +10,9 @@ export const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route index element={<Home/>}/>
-                <Route path="inventory/" element={<GlobalState><Inventory/></GlobalState>}/>
-                <Route path="home/" element={<GlobalState><Product/></GlobalState>}/>
+                <Route path="inventory" element={<GlobalState><Inventory/></GlobalState>}/>
+                <Route path="home" element={<GlobalState><Product/></GlobalState>}/>
+                <Route path="*" element={<Home />} />
             </Routes>
         </BrowserRouter>
     )
